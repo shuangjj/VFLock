@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.philriesch.android.vflock" >
+    package="com.philriesch.android.vflock" 
+    >
 
     <original-package android:name="com.philriesch.android.vflock" />
 
@@ -48,8 +49,8 @@
  		<service android:name="com.philriesch.android.vflock.FaceAuthService"
  		    android:exported="true"
  		    android:process=":remote" />
-        <!--
-             <activity
+       
+        <activity
             android:name="com.philriesch.android.vflock.EnrollActivity"
             android:label="@string/title_activity_enroll"
             android:screenOrientation="portrait" >
@@ -61,7 +62,7 @@
             </intent-filter>
            
         </activity>
-        -->
+      
         <!--
         <service android:name="com.philriesch.android.vflock.LockscreenService" />
 

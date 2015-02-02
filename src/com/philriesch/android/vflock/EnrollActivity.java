@@ -36,7 +36,7 @@ public class EnrollActivity extends PreferenceActivity {
 		Log.d("EnrollActivity", "Starting face recognition enrollment");
 		Intent enrollfacerecintent = new Intent(this, FacerecActivity.class);
 		enrollfacerecintent.putExtra(FacerecActivity.EXTRA_ENROLLMODE, true);
-		//startActivityForResult(enrollfacerecintent, REQUEST_ENROLL_FACE);
+		startActivityForResult(enrollfacerecintent, REQUEST_ENROLL_FACE);
 	}
 
 	@Override
