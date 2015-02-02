@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android-VFLock-1</string>
+    <string name="title_activity_lockscreen">LockscreenActivity</string>
+    <string name="btn_activity_lockscreen">Unlock</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_facerec">FacerecActivity</string>
+    <string name="btn_activity_facerec">Capture</string>
+    <string name="title_activity_enroll">EnrollActivity</string>
+    <string name="btn_activity_enroll">Enroll</string>
+    <string name="title_activity_voicerec">VoicerecActivity</string>
+    <string name="btn_activity_voicerec">Start Recording Voice</string>
+    <string name="title_activity_face_unlock">FaceUnlock</string>
+
+</resources>

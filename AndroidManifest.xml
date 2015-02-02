@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.philriesch.android.vflock" >
+
+    <original-package android:name="com.philriesch.android.vflock" />
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="19" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".VflockApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        <!--  
+        <activity
+            android:name=".LockscreenActivity"
+            android:label="@string/title_activity_lockscreen"
+            android:screenOrientation="portrait" >
+        </activity>-->
+        <activity
+            android:name=".FacerecActivity"
+            android:label="@string/title_activity_facerec"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+ 		<service android:name="com.philriesch.android.vflock.FaceAuthService"
+ 		    android:exported="true"
+ 		    android:process=":remote" />
+        <!--
+             <activity
+            android:name="com.philriesch.android.vflock.EnrollActivity"
+            android:label="@string/title_activity_enroll"
+            android:screenOrientation="portrait" >
+         
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+           
+        </activity>
+        -->
+        <!--
+        <service android:name="com.philriesch.android.vflock.LockscreenService" />
+
+        <receiver
+            android:name="com.philriesch.android.vflock.LockscreenReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.philriesch.android.vflock.VoicerecActivity"
+            android:label="@string/title_activity_voicerec" >
+        </activity>
+        -->
+
+    </application>
+
+</manifest>
