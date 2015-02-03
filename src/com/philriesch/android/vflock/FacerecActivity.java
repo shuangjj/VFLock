@@ -75,7 +75,7 @@ public class FacerecActivity extends AbstractCameraActivity
 		else {
 			Log.d("FacerecActivity", "Entering authenticate mode.");
 			current_mode = EXTRA_AUTHENTICATEMODE;
-			makeFullscreen();
+			//makeFullscreen();
 		}
 		
 		try {
@@ -103,10 +103,11 @@ public class FacerecActivity extends AbstractCameraActivity
 	@Override
 	protected void onResume () {
 		super.onResume();
-		
+		/*
 		if (current_mode.equals(EXTRA_AUTHENTICATEMODE)) {
 			VflockApplication.SecurityAuthStateOn();
 		}
+		*/
 		CameraResume();
 	}
 	
@@ -236,6 +237,7 @@ public class FacerecActivity extends AbstractCameraActivity
 				mat.postRotate(270f);
 				// Tell the facerec thread to load the user model
 				try {
+					if(!face_recognition_thread.isRunning()) face_recognition_thread.Start();
 					face_recognition_thread.OpenModel("user");
 					// Wait for the thread to become ready
 					while (!face_recognition_thread.CanTest()) continue;
@@ -247,6 +249,7 @@ public class FacerecActivity extends AbstractCameraActivity
 							bmp.getHeight(), 
 							mat, 
 							true));
+					
 				}
 				catch (ThreadBadStateException e) {
 					Log.e("FacerecActivity", "Thread bad state exception encountered during authentication!");
@@ -391,7 +394,18 @@ public class FacerecActivity extends AbstractCameraActivity
 	public void onFaceNotFoundException(FaceNotFoundException e) {
 		Log.e("FacerecActivity", "Face not found exception");
 		face_recognition_thread.Stop();
-		alert_msg = "An error has occured: cannot find your face. Please hold device one arm length away from your face and try again. Press Ok to try again.";
+		if(current_mode.equals(EXTRA_AUTHENTICATEMODE)) {
+			alert_msg = "An error occured while authenticating: cannot find your face. "
+					+ "Please hold device one arm length away from your face and try again. "
+					+ "Press Ok to try again.";
+			ExceptionAlertAndReset(alert_msg);
+			Log.d(LOG_TAG, alert_msg);
+		} else {
+			alert_msg = "An error occured while enrolling: cannot find your face."
+					+ "Please hold device one arm length away from your face and try again. "
+					+ "Press Ok to try again.";
+			
+		}
 	}
 
 	@Override
@@ -428,9 +442,10 @@ public class FacerecActivity extends AbstractCameraActivity
 							enroll_picture_set.clear();
 							enroll_picture_count = 0;
 							Log.d(LOG_TAG, "Picture cleared, restarted");
+							Log.d(LOG_TAG, String.format("count: %d, size: %d", enroll_picture_count, 
+									enroll_picture_set.size()));
 						}
-						Log.d(LOG_TAG, String.format("count: %d, size: %d", enroll_picture_count, 
-								enroll_picture_set.size()));
+						
 						CameraResume();
 					}
 					

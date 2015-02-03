@@ -8,11 +8,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.philriesch.android.vflock.EnrollActivity" >
 
-    <Button
-        android:id="@+id/btnEnroll"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/btn_activity_enroll" />
+        android:layout_marginBottom="118dp" >
+
+        <Button
+            android:id="@+id/btnEnroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_activity_enroll" />
+
+        <Button
+            android:id="@+id/btnAuth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_auth" />
+
+    </LinearLayout>
+
 </RelativeLayout>

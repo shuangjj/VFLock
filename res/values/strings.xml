@@ -10,6 +10,7 @@
     <string name="btn_activity_facerec">Capture</string>
     <string name="title_activity_enroll">EnrollActivity</string>
     <string name="btn_activity_enroll">Enroll</string>
+    <string name="btn_auth">Authenticate</string>
     <string name="title_activity_voicerec">VoicerecActivity</string>
     <string name="btn_activity_voicerec">Start Recording Voice</string>
     <string name="title_activity_face_unlock">FaceUnlock</string>
